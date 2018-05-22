@@ -1,42 +1,44 @@
 class carInfo
 	{
-		public car:<string>;
-		public model:<number>;
-		public year:<number>;
-		public horsepower:<number>;
-		public image:<string>;
+		public car: string;
+		public model:number;
+		public year:number;
+		public horsepower:number;
+		public image:string;
 
-constructor(a, b, c, d, e){
+constructor(car, model, year, horsepower, image){
 
-
+	this.car = car;
+	this.model = model;
+	this.year = year;
+	this.horsepower = horsepower;
+	this.image = image;
 
 
 }
 
-list(){`
+list(){
+	
+	document.getElementById('info').innerHTML = `
 
-	<div class="container blue">
-			<div class="row ">
-			<div class="col-md-3 grey p-2">
-			
-				<img src="${this.image}">
+		<div class="container blue">
+			<div class="row">
+				<div class="col-md-3 grey">	
+					<img src="${this.image}">
+				</div>
+				<div class="col-md-4 grey">
+					<h3>${this.car}</h3>
+					<p>${this.model}</p>
+					<p>${this.year}</p>
+					<p>${this.horsepower}</p>
+				</div>
+				<div class="col-md-3 grey pt-4">
+					<span class="font-weight-bold"> 50€ </span>
+					<br>
+					<br>
+					<button id="contactButton" class="btn" type="">Contact</button>
+				</div>
 			</div>
-			<div class="col-md-6 grey p-2 pl-4">
-				<h3>${this.car}</h3>
-				<p>${this.model}</p>
-				<p>${this.year}</p>
-				<p>${this.horsepower}</p>
-			</div>
-			<div class="col-md-3 grey p-2 pt-4">
-				<span class="font-weight-bold"> 50€ </span>
-				<br>
-				<br>
-				<button id="contactButton" class="btn" type="">Contact</button>
-				
-			</div>
-
-
-		</div>
 		</div>
 
 		`;
@@ -47,9 +49,10 @@ list(){`
 
 
 
-},
+};
 
-let cars = new carInfo("mbw",2015,2,200,"");
+let cars = new carInfo('bmw',2015,2,200,'https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" class="img-fluid"');
+
 
 cars.list();
 
